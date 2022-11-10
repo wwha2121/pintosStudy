@@ -94,7 +94,7 @@ intr_enable (void)
 
      See [IA32-v2b] "STI" and [IA32-v3a] 5.8.1 "Masking Maskable
      Hardware Interrupts". */
-  asm volatile ("sti");
+  asm volatile ("sti"); // interrupt disabled 
 
   return old_level;
 }
@@ -109,7 +109,7 @@ intr_disable (void)
      See [IA32-v2b] "CLI" and [IA32-v3a] 5.8.1 "Masking Maskable
      Hardware Interrupts". */
   asm volatile ("cli" : : : "memory");
-
+ 
   return old_level;
 }
 
